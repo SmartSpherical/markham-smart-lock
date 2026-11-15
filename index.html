@@ -1,0 +1,524 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Markham Smart Lock — Fingerprint door locks, installed for you</title>
+<meta name="description" content="Fingerprint, code and card smart door locks supplied and installed in Markham, Ontario. Free door check, door conversion included, support in English, 普通话 and 粵語.">
+<meta property="og:title" content="Markham Smart Lock — installed fingerprint door locks">
+<meta property="og:description" content="Fingerprint, code, card or key. We fit it to your door. Free door check in Markham.">
+<meta property="og:image" content="assets/lock-front.jpg">
+<style>
+  :root{
+    --ink:#16181a; --ink-2:#44494e; --muted:#6c7277;
+    --paper:#f6f4ef; --card:#ffffff; --line:#e3dfd6;
+    --jade:#1d6b57; --jade-2:#15523f; --jade-soft:#e3efe9;
+    --brass:#b08a4a;
+    --r:14px;
+    --font: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial,
+            "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans SC", sans-serif;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{margin:0;font-family:var(--font);color:var(--ink);background:var(--paper);line-height:1.6;-webkit-font-smoothing:antialiased}
+  img{max-width:100%;height:auto;display:block}
+  a{color:var(--jade)}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 22px}
+
+  /* language toggle: every bilingual string is a pair of spans */
+  body.lang-en .zh, body.lang-zh .en{display:none !important}
+
+  /* header */
+  header{position:sticky;top:0;z-index:20;background:rgba(246,244,239,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+  .bar{display:flex;align-items:center;justify-content:space-between;height:64px;gap:16px}
+  .brand{display:flex;align-items:center;gap:10px;font-weight:700;letter-spacing:.2px;text-decoration:none;color:var(--ink)}
+  .mark{width:30px;height:30px;border-radius:8px;background:var(--ink);display:grid;place-items:center}
+  .mark svg{width:16px;height:16px}
+  nav.links{display:flex;gap:22px}
+  nav.links a{color:var(--ink-2);text-decoration:none;font-size:15px}
+  nav.links a:hover{color:var(--jade)}
+  .right{display:flex;align-items:center;gap:10px}
+  .lang{display:flex;border:1px solid var(--line);border-radius:999px;overflow:hidden;background:#fff}
+  .lang button{border:0;background:none;padding:6px 12px;font:inherit;font-size:14px;cursor:pointer;color:var(--ink-2)}
+  .lang button[aria-pressed="true"]{background:var(--ink);color:#fff}
+  .btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:12px 20px;border-radius:999px;font-weight:600;text-decoration:none;border:1px solid transparent;cursor:pointer;font:inherit;font-weight:600}
+  .btn-primary{background:var(--jade);color:#fff}
+  .btn-primary:hover{background:var(--jade-2)}
+  .btn-ghost{border-color:var(--ink);color:var(--ink);background:transparent}
+  .btn-ghost:hover{background:var(--ink);color:#fff}
+  .btn-sm{padding:8px 14px;font-size:14px}
+
+  /* hero */
+  .hero{padding:56px 0 40px}
+  .hero-grid{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:center}
+  .eyebrow{display:inline-block;font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:var(--jade);background:var(--jade-soft);padding:5px 10px;border-radius:999px}
+  h1{font-size:clamp(34px,5vw,56px);line-height:1.08;margin:18px 0 16px;letter-spacing:-.02em}
+  .lede{font-size:19px;color:var(--ink-2);max-width:34em;margin:0 0 26px}
+  .cta-row{display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+  .price-note{margin-top:18px;color:var(--muted);font-size:15px}
+  .price-note strong{color:var(--ink)}
+  .hero-img{position:relative;max-width:440px;justify-self:end;width:100%}
+  .hero-img img{border-radius:22px;aspect-ratio:4/5;object-fit:cover;object-position:center 40%;width:100%;max-height:560px;box-shadow:0 30px 60px -30px rgba(0,0,0,.35)}
+  .badge{position:absolute;left:-18px;bottom:28px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 14px;box-shadow:0 10px 30px -12px rgba(0,0,0,.25);font-size:14px;line-height:1.35}
+  .badge b{display:block;font-size:20px;color:var(--jade)}
+
+  /* trust strip */
+  .strip{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff}
+  .strip ul{list-style:none;margin:0 auto;padding:16px 22px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+  .strip li{display:flex;align-items:center;gap:10px;font-size:15px;color:var(--ink-2)}
+  .tick{flex:none;width:22px;height:22px;border-radius:50%;background:var(--jade-soft);display:grid;place-items:center;color:var(--jade);font-size:13px;font-weight:700}
+
+  section{padding:72px 0}
+  h2{font-size:clamp(26px,3.4vw,38px);line-height:1.15;margin:0 0 12px;letter-spacing:-.01em}
+  .sub{color:var(--ink-2);font-size:17px;max-width:40em;margin:0 0 36px}
+
+  /* unlock methods */
+  .ways{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+  .way{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px}
+  .way .ic{width:44px;height:44px;border-radius:12px;background:var(--ink);display:grid;place-items:center;margin-bottom:14px}
+  .way .ic svg{width:22px;height:22px;stroke:#fff}
+  .way h3{margin:0 0 6px;font-size:18px}
+  .way p{margin:0;color:var(--ink-2);font-size:15px}
+
+  /* feature split */
+  .split{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:center}
+  .split img{border-radius:20px;aspect-ratio:4/5;object-fit:cover;width:100%;max-height:560px}
+  .feat{list-style:none;padding:0;margin:0;display:grid;gap:18px}
+  .feat li{display:grid;grid-template-columns:28px 1fr;gap:12px}
+  .feat h3{margin:0 0 2px;font-size:17px}
+  .feat p{margin:0;color:var(--ink-2);font-size:15px}
+  .num{width:28px;height:28px;border-radius:50%;background:var(--jade);color:#fff;display:grid;place-items:center;font-size:14px;font-weight:700}
+
+  /* audiences */
+  .dark{background:var(--ink);color:#eef0ee}
+  .dark .sub{color:#b9c0bc}
+  .aud{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+  .aud div{border:1px solid #2c3033;border-radius:var(--r);padding:24px;background:#1d2022}
+  .aud h3{margin:0 0 8px;font-size:18px;color:#fff}
+  .aud p{margin:0;color:#b9c0bc;font-size:15px}
+
+  /* steps */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--r);padding:22px;position:relative}
+  .step::before{counter-increment:s;content:counter(s);font-size:13px;font-weight:700;color:var(--jade);background:var(--jade-soft);border-radius:999px;padding:3px 10px;display:inline-block;margin-bottom:12px}
+  .step h3{margin:0 0 6px;font-size:17px}
+  .step p{margin:0;color:var(--ink-2);font-size:15px}
+
+  /* pricing */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;align-items:stretch}
+  .plan{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;display:flex;flex-direction:column}
+  .plan.best{border:2px solid var(--jade);position:relative}
+  .plan.best .tag{position:absolute;top:-13px;left:24px;background:var(--jade);color:#fff;font-size:12px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 10px;border-radius:999px}
+  .plan h3{margin:0 0 4px;font-size:19px}
+  .plan .for{color:var(--muted);font-size:14px;margin:0 0 18px;min-height:42px}
+  .amt{font-size:42px;font-weight:800;letter-spacing:-.02em;line-height:1}
+  .amt small{font-size:15px;font-weight:500;color:var(--muted);letter-spacing:0}
+  .was{color:var(--muted);font-size:14px;margin-top:6px;min-height:21px}
+  .plan ul{list-style:none;padding:0;margin:20px 0 24px;display:grid;gap:9px;font-size:15px;color:var(--ink-2)}
+  .plan li::before{content:"✓";color:var(--jade);font-weight:700;margin-right:8px}
+  .plan .btn{margin-top:auto}
+  .fine{color:var(--muted);font-size:14px;margin-top:18px}
+
+  /* faq */
+  .faq{max-width:820px}
+  details{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:0 20px;margin-bottom:10px}
+  summary{cursor:pointer;list-style:none;padding:18px 0;font-weight:600;display:flex;justify-content:space-between;gap:16px}
+  summary::-webkit-details-marker{display:none}
+  summary::after{content:"+";color:var(--jade);font-size:22px;line-height:1}
+  details[open] summary::after{content:"–"}
+  details p{margin:0 0 18px;color:var(--ink-2)}
+
+  /* booking */
+  .book{display:grid;grid-template-columns:.9fr 1.1fr;gap:40px}
+  .contact-list{list-style:none;padding:0;margin:24px 0 0;display:grid;gap:14px}
+  .contact-list li{display:flex;gap:12px;align-items:center}
+  .contact-list .k{width:84px;color:var(--muted);font-size:14px}
+  .contact-list a,.contact-list span.v{font-weight:600;color:var(--ink);text-decoration:none}
+  form{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:28px;display:grid;gap:14px}
+  .row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  label{font-size:14px;font-weight:600;display:grid;gap:6px}
+  input,select,textarea{font:inherit;font-weight:400;padding:11px 12px;border:1px solid var(--line);border-radius:10px;background:#fbfaf7;color:var(--ink)}
+  input:focus,select:focus,textarea:focus{outline:2px solid var(--jade);outline-offset:1px;border-color:transparent}
+  textarea{min-height:90px;resize:vertical}
+  .form-note{font-size:13px;color:var(--muted);margin:0}
+
+  footer{border-top:1px solid var(--line);padding:28px 0 40px;color:var(--muted);font-size:13px}
+  footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
+
+  /* mobile call bar */
+  .mbar{display:none}
+
+  @media (max-width:900px){
+    nav.links{display:none}
+    .hero{padding-top:32px}
+    .hero-grid,.split,.book{grid-template-columns:1fr;gap:32px}
+    .hero-img{order:-1;max-width:420px;justify-self:start}
+    .badge{left:12px}
+    .strip ul{grid-template-columns:1fr 1fr}
+    .ways,.steps{grid-template-columns:1fr 1fr}
+    .aud,.plans{grid-template-columns:1fr}
+    section{padding:56px 0}
+    .split img{max-height:520px}
+    .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:30;gap:8px;padding:10px 12px;background:#fff;border-top:1px solid var(--line)}
+    .mbar .btn{flex:1;padding:12px 10px}
+    body{padding-bottom:70px}
+    .hide-sm{display:none}
+  }
+  @media (max-width:520px){
+    .ways,.steps,.row2{grid-template-columns:1fr}
+    .strip ul{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body class="lang-en">
+
+<!--
+  ===================================================================
+  EDIT THESE BEFORE PUBLISHING  (search for "CONFIG" in the script at
+  the bottom of this file): business name, phone, email, WeChat ID.
+  Prices are set in the Pricing section below.
+  ===================================================================
+-->
+
+<header>
+  <div class="wrap bar">
+    <a class="brand" href="#top" aria-label="Home">
+      <span class="mark"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><rect x="5" y="10" width="14" height="10" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></span>
+      <span data-config="businessName">Markham Smart Lock</span>
+    </a>
+    <nav class="links" aria-label="Main">
+      <a href="#features"><span class="en">Features</span><span class="zh">产品特点</span></a>
+      <a href="#how"><span class="en">How it works</span><span class="zh">服务流程</span></a>
+      <a href="#pricing"><span class="en">Pricing</span><span class="zh">价格</span></a>
+      <a href="#faq"><span class="en">FAQ</span><span class="zh">常见问题</span></a>
+    </nav>
+    <div class="right">
+      <div class="lang" role="group" aria-label="Language">
+        <button type="button" data-lang="en" aria-pressed="true">EN</button>
+        <button type="button" data-lang="zh" aria-pressed="false">中文</button>
+      </div>
+      <a class="btn btn-primary btn-sm hide-sm" href="#book"><span class="en">Free door check</span><span class="zh">免费上门评估</span></a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow"><span class="en">Supplied &amp; installed in Markham</span><span class="zh">万锦本地供货及安装</span></span>
+      <h1>
+        <span class="en">Your front door, opened with a fingertip.</span>
+        <span class="zh">指尖一触，轻松开门。</span>
+      </h1>
+      <p class="lede">
+        <span class="en">A full-size smart lock with fingerprint, code, card and key access — fitted to your door by a local installer, with support in English, Mandarin and Cantonese.</span>
+        <span class="zh">一体式智能门锁，支持指纹、密码、门卡及机械钥匙开锁。本地师傅上门为您的门量身安装，提供英语、普通话及粤语服务。</span>
+      </p>
+      <div class="cta-row">
+        <a class="btn btn-primary" href="#book"><span class="en">Book a free door check</span><span class="zh">预约免费上门评估</span></a>
+        <a class="btn btn-ghost" href="#pricing"><span class="en">See pricing</span><span class="zh">查看价格</span></a>
+      </div>
+      <p class="price-note">
+        <span class="en"><strong>$599 installed</strong> + HST · door conversion included · pay after installation</span>
+        <span class="zh"><strong>含安装 $599</strong> + HST · 含门体改装 · 安装完成后付款</span>
+      </p>
+    </div>
+    <div class="hero-img">
+      <img src="assets/lock-front.jpg" alt="Black smart door lock with glass keypad panel and lever handle" width="900" height="1463">
+      <div class="badge">
+        <b><span class="en">4 ways in</span><span class="zh">4 种开锁方式</span></b>
+        <span class="en">Fingerprint · Code · Card · Key</span><span class="zh">指纹 · 密码 · 门卡 · 钥匙</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="strip">
+  <ul class="wrap">
+    <li><span class="tick">✓</span><span class="en">Free door check before you buy</span><span class="zh">购买前免费评估</span></li>
+    <li><span class="tick">✓</span><span class="en">Door conversion included</span><span class="zh">门体改装已包含</span></li>
+    <li><span class="tick">✓</span><span class="en">1-year local warranty</span><span class="zh">本地一年保修</span></li>
+    <li><span class="tick">✓</span><span class="en">English · 普通话 · 粵語</span><span class="zh">英语 · 普通话 · 粤语</span></li>
+  </ul>
+</div>
+
+<!-- WAYS TO UNLOCK -->
+<section id="features">
+  <div class="wrap">
+    <h2><span class="en">No more keys under the mat.</span><span class="zh">告别找钥匙的烦恼。</span></h2>
+    <p class="sub"><span class="en">Give everyone in the house the way in that suits them — and take access away just as easily.</span><span class="zh">家里每个人都能用最方便的方式开门，权限也可以随时取消。</span></p>
+    <div class="ways">
+      <div class="way">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><path d="M12 11v3a6 6 0 0 1-1 3.3"/><path d="M8.5 9.5a3.5 3.5 0 0 1 7 0V13a10 10 0 0 1-.8 3.9"/><path d="M6 8a6.5 6.5 0 0 1 12 1.5V12"/><path d="M5 12.5a9 9 0 0 0 .5 3"/></svg></div>
+        <h3><span class="en">Fingerprint</span><span class="zh">指纹</span></h3>
+        <p><span class="en">Sensor built into the handle — touch and push down to open.</span><span class="zh">指纹识别集成在把手上，一握即开。</span></p>
+      </div>
+      <div class="way">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 7h.01M12 7h.01M16 7h.01M8 11h.01M12 11h.01M16 11h.01M8 15h.01M12 15h.01M16 15h.01"/></svg></div>
+        <h3><span class="en">PIN code</span><span class="zh">密码</span></h3>
+        <p><span class="en">Touch keypad on the glass panel for family, guests or a cleaner.</span><span class="zh">玻璃面板触控键盘，适合家人、访客或清洁工使用。</span></p>
+      </div>
+      <div class="way">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 14h4"/><path d="M15 10.5a2 2 0 0 1 0 3M17.5 9a4.5 4.5 0 0 1 0 6"/></svg></div>
+        <h3><span class="en">Key card</span><span class="zh">门卡</span></h3>
+        <p><span class="en">Tap a card — handy for kids, seniors and rental tenants.</span><span class="zh">刷卡开门，方便老人、小孩和租客。</span></p>
+      </div>
+      <div class="way">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round"><circle cx="8" cy="15" r="4"/><path d="M11 12l8-8M16 7l2 2M14 9l2 2"/></svg></div>
+        <h3><span class="en">Backup key</span><span class="zh">备用钥匙</span></h3>
+        <p><span class="en">A hidden mechanical key for emergencies.</span><span class="zh">隐藏式机械钥匙，应急备用。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUILT SOLID -->
+<section style="padding-top:0">
+  <div class="wrap split">
+    <img src="assets/lock-bolts.jpg" alt="Side view of the lock body showing the latch and four steel bolts" width="800" height="1138" loading="lazy">
+    <div>
+      <h2><span class="en">Built like a proper front-door lock.</span><span class="zh">真正的入户门锁品质。</span></h2>
+      <p class="sub"><span class="en">This isn't a stick-on gadget. It's a full mortise lock that replaces your old handle and deadbolt.</span><span class="zh">这不是贴在门上的小配件，而是完整的插芯门锁，替换原有的把手和门栓。</span></p>
+      <ul class="feat">
+        <li><span class="num">1</span><div><h3><span class="en">Latch plus four steel bolts</span><span class="zh">斜舌加四个钢制锁舌</span></h3><p><span class="en">The lock body throws multiple bolts into the frame, not just one.</span><span class="zh">锁体多点锁入门框，而不只是单一锁舌。</span></p></div></li>
+        <li><span class="num">2</span><div><h3><span class="en">Handle and lock in one</span><span class="zh">把手与门锁一体</span></h3><p><span class="en">One clean panel inside and out — no separate deadbolt to remember.</span><span class="zh">内外一体化面板，无需另外记得锁门栓。</span></p></div></li>
+        <li><span class="num">3</span><div><h3><span class="en">Fitted to your door</span><span class="zh">按您的门安装</span></h3><p><span class="en">Most Canadian doors are drilled for a round lock. We do the conversion so this lock fits properly and looks finished.</span><span class="zh">加拿大大多数门是为圆孔门锁开的孔。我们负责改装，确保门锁安装牢固、外观整洁。</span></p></div></li>
+        <li><span class="num">4</span><div><h3><span class="en">Set up before we leave</span><span class="zh">离开前完成设置</span></h3><p><span class="en">We register everyone's fingerprints and cards and show you how to add or remove users.</span><span class="zh">我们为家人录入指纹和门卡，并教您如何增减用户。</span></p></div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- WHO IT'S FOR -->
+<section class="dark">
+  <div class="wrap">
+    <h2><span class="en">Made for Markham homes.</span><span class="zh">为万锦家庭而选。</span></h2>
+    <p class="sub"><span class="en">Detached homes, semis and townhouses with a front, side or garage-entry door.</span><span class="zh">适用于独立屋、半独立屋及镇屋的前门、侧门或车库入户门。</span></p>
+    <div class="aud">
+      <div>
+        <h3><span class="en">Busy families</span><span class="zh">忙碌的家庭</span></h3>
+        <p><span class="en">Kids come home without a key. Grandparents get in with a fingerprint. Nobody gets locked out.</span><span class="zh">孩子放学不用带钥匙，老人用指纹即可开门，再也不会被锁在门外。</span></p>
+      </div>
+      <div>
+        <h3><span class="en">Landlords &amp; basement suites</span><span class="zh">房东与地下室出租</span></h3>
+        <p><span class="en">Give each tenant their own code or card. When they move out, delete it — no rekeying.</span><span class="zh">每位租客独立密码或门卡，退租时直接删除，无需换锁芯。</span></p>
+      </div>
+      <div>
+        <h3><span class="en">New homeowners</span><span class="zh">新屋主</span></h3>
+        <p><span class="en">You don't know who still has a key to your new house. Start fresh on day one.</span><span class="zh">不知道前屋主给过谁钥匙？搬进新家第一天就换上新锁。</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how">
+  <div class="wrap">
+    <h2><span class="en">How it works</span><span class="zh">服务流程</span></h2>
+    <p class="sub"><span class="en">You don't pay anything until the lock is on your door and working.</span><span class="zh">门锁安装好、确认能正常使用之前，您无需支付任何费用。</span></p>
+    <div class="steps">
+      <div class="step"><h3><span class="en">Book a free check</span><span class="zh">预约免费评估</span></h3><p><span class="en">Send the form below or message us. Photos of your door help.</span><span class="zh">填写下方表格或直接联系我们，附上门的照片更好。</span></p></div>
+      <div class="step"><h3><span class="en">We look at your door</span><span class="zh">上门查看</span></h3><p><span class="en">We measure, confirm it fits and give you a fixed price.</span><span class="zh">测量尺寸，确认是否适合，并给出一口价。</span></p></div>
+      <div class="step"><h3><span class="en">Installation</span><span class="zh">上门安装</span></h3><p><span class="en">Usually done in a single visit, including the door conversion.</span><span class="zh">通常一次上门即可完成，包括门体改装。</span></p></div>
+      <div class="step"><h3><span class="en">Set up &amp; pay</span><span class="zh">设置及付款</span></h3><p><span class="en">We register your family, you test it, then you pay.</span><span class="zh">录入家人信息，您亲自测试满意后再付款。</span></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing" style="padding-top:0">
+  <div class="wrap">
+    <h2><span class="en">Simple pricing</span><span class="zh">价格透明</span></h2>
+    <p class="sub"><span class="en">All prices in Canadian dollars, plus 13% HST.</span><span class="zh">所有价格均为加元，另加 13% HST。</span></p>
+    <div class="plans">
+      <div class="plan best">
+        <span class="tag"><span class="en">Most popular</span><span class="zh">最受欢迎</span></span>
+        <h3><span class="en">Installed</span><span class="zh">含安装</span></h3>
+        <p class="for"><span class="en">Front door, done for you</span><span class="zh">入户门，全程代办</span></p>
+        <div class="amt">$599 <small>+ HST</small></div>
+        <div class="was"><span class="en">Launch offer: $549 for our first 20 customers</span><span class="zh">开业优惠：前 20 位客户仅 $549</span></div>
+        <ul>
+          <li><span class="en">Smart lock and handle set</span><span class="zh">智能门锁及把手套装</span></li>
+          <li><span class="en">Door conversion and installation</span><span class="zh">门体改装及安装</span></li>
+          <li><span class="en">Fingerprints and cards set up</span><span class="zh">指纹及门卡设置</span></li>
+          <li><span class="en">1-year local warranty</span><span class="zh">本地一年保修</span></li>
+        </ul>
+        <a class="btn btn-primary" href="#book" data-plan="Installed"><span class="en">Book a free check</span><span class="zh">预约免费评估</span></a>
+      </div>
+      <div class="plan">
+        <h3><span class="en">Second door</span><span class="zh">第二扇门</span></h3>
+        <p class="for"><span class="en">Side or garage-entry door, same visit</span><span class="zh">侧门或车库入户门，同次上门</span></p>
+        <div class="amt">$499 <small>+ HST</small></div>
+        <div class="was"></div>
+        <ul>
+          <li><span class="en">Everything in Installed</span><span class="zh">包含“含安装”全部内容</span></li>
+          <li><span class="en">Same fingerprints and cards work on both</span><span class="zh">指纹和门卡两扇门通用设置</span></li>
+        </ul>
+        <a class="btn btn-ghost" href="#book" data-plan="Two doors"><span class="en">Ask about two doors</span><span class="zh">咨询两扇门</span></a>
+      </div>
+      <div class="plan">
+        <h3><span class="en">Lock only</span><span class="zh">仅门锁</span></h3>
+        <p class="for"><span class="en">For contractors and doors already prepared for this lock</span><span class="zh">适合装修师傅或已预留此类锁孔的门</span></p>
+        <div class="amt">$329 <small>+ HST</small></div>
+        <div class="was"></div>
+        <ul>
+          <li><span class="en">Smart lock and handle set</span><span class="zh">智能门锁及把手套装</span></li>
+          <li><span class="en">Local pickup in Markham</span><span class="zh">万锦本地自取</span></li>
+          <li><span class="en">Phone setup help</span><span class="zh">电话指导设置</span></li>
+        </ul>
+        <a class="btn btn-ghost" href="#book" data-plan="Lock only"><span class="en">Order lock only</span><span class="zh">订购门锁</span></a>
+      </div>
+    </div>
+    <p class="fine"><span class="en">Pay after installation by Interac e-Transfer or by card through a secure payment link. Installation outside Markham may add a travel fee.</span><span class="zh">安装完成后可通过 Interac e-Transfer 或安全支付链接刷卡付款。万锦以外地区可能收取上门费。</span></p>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="padding-top:0">
+  <div class="wrap"><div class="faq">
+    <h2><span class="en">Questions</span><span class="zh">常见问题</span></h2>
+    <details>
+      <summary><span class="en">Will it fit my door?</span><span class="zh">我的门能装吗？</span></summary>
+      <p><span class="en">Most solid wood, fibreglass and steel entry doors can be converted. That's why we check your door first — if it isn't a good fit, we'll tell you and you pay nothing.</span><span class="zh">大多数实木、玻璃钢及钢制入户门都可以改装。所以我们会先免费上门查看——如果不适合，我们会如实告知，您无需支付任何费用。</span></p>
+    </details>
+    <details>
+      <summary><span class="en">What happens if the batteries run low?</span><span class="zh">电池没电怎么办？</span></summary>
+      <p><span class="en">The lock runs on batteries and warns you before they run out. You can always open the door with the backup mechanical key. We'll show you how to change the batteries during setup.</span><span class="zh">门锁使用电池供电，电量不足前会提醒。随时可用备用机械钥匙开门。安装时我们会教您如何更换电池。</span></p>
+    </details>
+    <details>
+      <summary><span class="en">Can I install it myself?</span><span class="zh">可以自己安装吗？</span></summary>
+      <p><span class="en">Only if your door is already prepared for this style of lock. Most doors in Canada need to be cut and converted, so we recommend the installed package.</span><span class="zh">只有门已经预留这种锁的开孔才可以。加拿大大多数门需要开槽改装，因此建议选择含安装套餐。</span></p>
+    </details>
+    <details>
+      <summary><span class="en">Do you install in condos?</span><span class="zh">公寓可以安装吗？</span></summary>
+      <p><span class="en">Condo apartment doors are usually fire-rated and controlled by building rules, so we focus on houses and townhouses. Ask us and we'll tell you honestly.</span><span class="zh">公寓单元门通常为防火门，且受物业规定限制，因此我们主要服务独立屋和镇屋。欢迎咨询，我们会如实告知。</span></p>
+    </details>
+    <details>
+      <summary><span class="en">What does the warranty cover?</span><span class="zh">保修包括什么？</span></summary>
+      <p><span class="en">For one year we'll repair or replace the lock if it stops working properly, and fix any installation problem, at no charge. We're local, so you can reach us directly.</span><span class="zh">一年内如门锁无法正常使用，我们免费维修或更换，安装问题也免费处理。我们就在本地，随时可以联系。</span></p>
+    </details>
+    <details>
+      <summary><span class="en">Which areas do you serve?</span><span class="zh">服务哪些地区？</span></summary>
+      <p><span class="en">All of Markham, including Unionville, Cornell, Berczy, Cathedraltown and Milliken. Richmond Hill, Vaughan and Scarborough on request.</span><span class="zh">万锦全区，包括 Unionville、Cornell、Berczy、Cathedraltown 及 Milliken。列治文山、旺市及士嘉堡可预约。</span></p>
+    </details>
+  </div></div>
+</section>
+
+<!-- BOOKING -->
+<section id="book" style="padding-top:0">
+  <div class="wrap book">
+    <div>
+      <h2><span class="en">Book your free door check</span><span class="zh">预约免费上门评估</span></h2>
+      <p class="sub" style="margin-bottom:0"><span class="en">Tell us a little about your door and we'll get back to you within one business day.</span><span class="zh">简单介绍一下您的门，我们会在一个工作日内回复。</span></p>
+      <ul class="contact-list">
+        <li><span class="k"><span class="en">Phone</span><span class="zh">电话</span></span><a data-config="phone" href="#">—</a></li>
+        <li><span class="k"><span class="en">Email</span><span class="zh">邮箱</span></span><a data-config="email" href="#">—</a></li>
+        <li><span class="k">WeChat</span><span class="v" data-config="wechat">—</span></li>
+      </ul>
+    </div>
+    <form id="bookForm" novalidate>
+      <div class="row2">
+        <label><span><span class="en">Name</span><span class="zh">姓名</span></span><input name="name" required autocomplete="name"></label>
+        <label><span><span class="en">Phone</span><span class="zh">电话</span></span><input name="phone" type="tel" required autocomplete="tel"></label>
+      </div>
+      <div class="row2">
+        <label><span><span class="en">Neighbourhood</span><span class="zh">所在社区</span></span><input name="area" placeholder="e.g. Unionville"></label>
+        <label><span><span class="en">Interested in</span><span class="zh">意向</span></span>
+          <select name="plan">
+            <option value="Installed">Installed — $599 / 含安装</option>
+            <option value="Two doors">Two doors / 两扇门</option>
+            <option value="Lock only">Lock only — $329 / 仅门锁</option>
+          </select>
+        </label>
+      </div>
+      <div class="row2">
+        <label><span><span class="en">Door type</span><span class="zh">门的材质</span></span>
+          <select name="door">
+            <option>Wood / 木门</option>
+            <option>Steel / 钢门</option>
+            <option>Fibreglass / 玻璃钢门</option>
+            <option>Not sure / 不确定</option>
+          </select>
+        </label>
+        <label><span><span class="en">Preferred language</span><span class="zh">沟通语言</span></span>
+          <select name="language">
+            <option>English</option>
+            <option>普通话 Mandarin</option>
+            <option>粵語 Cantonese</option>
+          </select>
+        </label>
+      </div>
+      <label><span><span class="en">Anything else?</span><span class="zh">其他说明</span></span><textarea name="message"></textarea></label>
+      <button class="btn btn-primary" type="submit"><span class="en">Send request</span><span class="zh">提交预约</span></button>
+      <p class="form-note"><span class="en">This opens your email app with your request filled in, so nothing is stored on this website.</span><span class="zh">点击后会打开您的邮件应用并自动填好内容，本网站不会保存您的任何信息。</span></p>
+    </form>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© <span id="yr"></span> <span data-config="businessName">Markham Smart Lock</span> · Markham, Ontario</span>
+    <span><span class="en">Featuring the EBKN KF6628 smart lock. EBKN is a trademark of its owner; we are an independent local installer.</span><span class="zh">产品为 EBKN KF6628 智能门锁。EBKN 为其所有者的商标；本店为独立本地安装商。</span></span>
+  </div>
+</footer>
+
+<div class="mbar">
+  <a class="btn btn-ghost" data-config="phone" href="#"><span class="en">Call</span><span class="zh">致电</span></a>
+  <a class="btn btn-primary" href="#book"><span class="en">Free door check</span><span class="zh">免费评估</span></a>
+</div>
+
+<script>
+  /* ================= CONFIG — edit these ================= */
+  const CONFIG = {
+    businessName: "Markham Smart Lock",
+    phone: "",        // e.g. "905-555-0123"
+    email: "",        // e.g. "hello@yourdomain.ca"  (booking form sends here)
+    wechat: ""        // your WeChat ID
+  };
+  /* ======================================================= */
+
+  // Fill contact details everywhere they appear
+  document.querySelectorAll('[data-config]').forEach(el => {
+    const key = el.dataset.config, val = CONFIG[key];
+    if (key === 'businessName') { el.textContent = val; return; }
+    if (!val) return;
+    if (key === 'phone') { el.href = 'tel:' + val.replace(/[^\d+]/g, ''); if (!el.classList.contains('btn')) el.textContent = val; }
+    else if (key === 'email') { el.href = 'mailto:' + val; el.textContent = val; }
+    else el.textContent = val;
+  });
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // Language toggle (remembers choice; defaults to Chinese if the browser is set to Chinese)
+  const setLang = l => {
+    document.body.classList.toggle('lang-en', l === 'en');
+    document.body.classList.toggle('lang-zh', l === 'zh');
+    document.documentElement.lang = l === 'zh' ? 'zh-CN' : 'en';
+    document.querySelectorAll('.lang button').forEach(b => b.setAttribute('aria-pressed', b.dataset.lang === l));
+    try { localStorage.setItem('lang', l); } catch (e) {}
+  };
+  let saved = null; try { saved = localStorage.getItem('lang'); } catch (e) {}
+  setLang(saved || ((navigator.language || '').toLowerCase().startsWith('zh') ? 'zh' : 'en'));
+  document.querySelectorAll('.lang button').forEach(b => b.addEventListener('click', () => setLang(b.dataset.lang)));
+
+  // Pricing buttons preselect the plan in the form
+  document.querySelectorAll('[data-plan]').forEach(a => a.addEventListener('click', () => {
+    document.querySelector('#bookForm [name=plan]').value = a.dataset.plan;
+  }));
+
+  // Booking form -> pre-filled email (no data stored on the site)
+  document.getElementById('bookForm').addEventListener('submit', e => {
+    e.preventDefault();
+    const f = e.target, d = Object.fromEntries(new FormData(f));
+    if (!d.name || !d.phone) { alert(document.body.classList.contains('lang-zh') ? '请填写姓名和电话。' : 'Please add your name and phone number.'); return; }
+    if (!CONFIG.email) { alert('Booking email not set yet — add it in CONFIG at the bottom of index.html.'); return; }
+    const body = `Name: ${d.name}\nPhone: ${d.phone}\nNeighbourhood: ${d.area}\nInterested in: ${d.plan}\nDoor type: ${d.door}\nLanguage: ${d.language}\n\n${d.message}`;
+    location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent('Door check request — ' + d.name)}&body=${encodeURIComponent(body)}`;
+  });
+</script>
+</body>
+</html>
