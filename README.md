@@ -32,7 +32,7 @@ Prices are written in the Pricing section (search for `$599`, `$549`, `$499`, `$
 - Before going live, confirm the features with your supplier. The site only claims fingerprint, PIN, card and key.
 
 ## Animations
-- **Opening:** the door unlocks (fingerprint, keypad wakes, handle presses) and swings open into the site. It plays once per visit, can be skipped with a click or any key, and is skipped automatically for visitors who turn on "reduce motion". Add `?intro` to the address to replay it.
+- **Opening:** the door unlocks (fingerprint, keypad wakes, handle presses) and swings open into the site. It plays every time the page loads (including refresh), can be skipped with a click or any key, and is skipped automatically for visitors who turn on "reduce motion". Add `?intro` to the address to replay it.
 - **Main image:** light sweep across the glass, fingerprint scan glow, card-reader glow, slow push-in.
 - **Bolts illustration:** latch and four bolts throw out of the faceplate while it's on screen.
 - **Made for Markham homes:** the wall light switches on when the picture scrolls into view.

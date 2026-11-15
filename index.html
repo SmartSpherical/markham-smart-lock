@@ -257,13 +257,12 @@
   }
 </style>
 <script>
-  /* show the door-opening intro once per visit (not for reduced-motion users); never block the page */
+  /* show the door-opening intro on every page load (not for reduced-motion users); never block the page */
   (function () {
     try {
-      var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches, seen = null;
-      try { seen = sessionStorage.getItem('introSeen'); } catch (e) {}
+      var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
       var force = /[?&]intro/.test(location.search);   // add ?intro to the URL to replay the intro
-      if (force || (!reduce && !seen)) {
+      if (force || !reduce) {
         document.documentElement.classList.add('intro-on');
         if (!/[?&]introhold/.test(location.search)) setTimeout(function () { document.documentElement.classList.remove('intro-on'); }, 9000);
       }
@@ -740,7 +739,6 @@
     let done = false;
     const finish = (fast) => {
       if (done) return; done = true;
-      try { sessionStorage.setItem('introSeen', '1'); } catch (e) {}
       el.classList.add('leaving');
       root.classList.add('intro-opening');
       setTimeout(() => { root.classList.remove('intro-on', 'intro-opening'); el.remove(); }, fast ? 300 : 460);
