@@ -4,7 +4,7 @@ A one-page bilingual (English / 简体中文) site for GitHub Pages.
 
 ## Files
 - `index.html` — the whole site (styles and script included)
-- `assets/` — lock illustrations (SVG) and the social share image
+- `assets/` — lock photos (your lock, cleaned up and placed on a door; door background by Korie Cull on Unsplash), the earlier SVG illustrations, and the social share image
 
 ## Before publishing
 Open `index.html`, scroll to the bottom and fill in `CONFIG`:

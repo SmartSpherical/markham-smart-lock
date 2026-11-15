@@ -96,6 +96,10 @@
   .aud div{border:1px solid #2c3033;border-radius:var(--r);padding:24px;background:#1d2022}
   .aud h3{margin:0 0 8px;font-size:18px;color:#fff}
   .aud p{margin:0;color:#b9c0bc;font-size:15px}
+  .split-aud{align-items:start}
+  .split-aud .aud{grid-template-columns:1fr;gap:12px}
+  .split-aud .aud div{padding:18px 20px}
+  .split-aud .sub{margin-bottom:24px}
 
   /* steps */
   .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;counter-reset:s}
@@ -227,7 +231,7 @@
       </p>
     </div>
     <div class="hero-img">
-      <img src="assets/lock-door.svg" alt="Illustration of a black smart lock with glass keypad and fingerprint lever handle on a front door" width="800" height="1000">
+      <img src="assets/photo-lock-door.jpg" alt="Black glass smart lock with a fingerprint lever handle, fitted to an oak front door" width="960" height="1200">
       <div class="badge">
         <b><span class="en">4 ways in</span><span class="zh">4 种开锁方式</span></b>
         <span class="en">Fingerprint · Code · Card · Key</span><span class="zh">指纹 · 密码 · 门卡 · 钥匙</span>
@@ -278,7 +282,7 @@
 <!-- BUILT SOLID -->
 <section style="padding-top:0">
   <div class="wrap split">
-    <img src="assets/lock-bolts.svg" alt="Illustration of the door edge showing the lock's latch and four steel bolts" width="800" height="1000" loading="lazy">
+    <img src="assets/photo-bolts.jpg" alt="Edge of the door showing the lock's stainless faceplate, latch and four steel bolts extended" width="800" height="1000" loading="lazy">
     <div>
       <h2><span class="en">Built like a proper front-door lock.</span><span class="zh">真正的入户门锁品质。</span></h2>
       <p class="sub"><span class="en">This isn't a stick-on gadget. It's a full mortise lock that replaces your old handle and deadbolt.</span><span class="zh">这不是贴在门上的小配件，而是完整的插芯门锁，替换原有的把手和门栓。</span></p>
@@ -294,7 +298,9 @@
 
 <!-- WHO IT'S FOR -->
 <section class="dark">
-  <div class="wrap">
+  <div class="wrap split split-aud">
+    <img src="assets/photo-door-wide.jpg" alt="Modern oak front door with the black smart lock fitted" width="1000" height="1250" loading="lazy">
+    <div>
     <h2><span class="en">Made for Markham homes.</span><span class="zh">为万锦家庭而选。</span></h2>
     <p class="sub"><span class="en">Detached homes, semis and townhouses with a front, side or garage-entry door.</span><span class="zh">适用于独立屋、半独立屋及镇屋的前门、侧门或车库入户门。</span></p>
     <div class="aud">
@@ -310,6 +316,7 @@
         <h3><span class="en">New homeowners</span><span class="zh">新屋主</span></h3>
         <p><span class="en">You don't know who still has a key to your new house. Start fresh on day one.</span><span class="zh">不知道前屋主给过谁钥匙？搬进新家第一天就换上新锁。</span></p>
       </div>
+    </div>
     </div>
   </div>
 </section>
@@ -464,6 +471,7 @@
   <div class="wrap">
     <span>© <span id="yr"></span> <span data-config="businessName">Markham Smart Lock</span> · Markham, Ontario</span>
     <span><span class="en">Featuring the EBKN KF6628 smart lock. EBKN is a trademark of its owner; we are an independent local installer.</span><span class="zh">产品为 EBKN KF6628 智能门锁。EBKN 为其所有者的商标；本店为独立本地安装商。</span></span>
+    <span><span class="en">Door photo background by Korie Cull on Unsplash.</span><span class="zh">门的背景照片：Korie Cull / Unsplash。</span></span>
   </div>
 </footer>
 
