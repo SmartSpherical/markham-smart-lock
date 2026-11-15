@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 1000" role="img" aria-label="Edge of a door showing the lock's stainless faceplate with a latch and four steel bolts extended">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e8f2ed"/><stop offset="1" stop-color="#cfe3d9"/>
+    </linearGradient>
+    <linearGradient id="face" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#1c362f"/><stop offset="1" stop-color="#2d5246"/>
+    </linearGradient>
+    <linearGradient id="edge" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#e9e3d6"/><stop offset=".5" stop-color="#f7f4ee"/><stop offset="1" stop-color="#e2dbcc"/>
+    </linearGradient>
+    <linearGradient id="steel" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#aab1b8"/><stop offset=".35" stop-color="#eef1f3"/><stop offset=".7" stop-color="#c3c9ce"/><stop offset="1" stop-color="#9aa2a9"/>
+    </linearGradient>
+    <linearGradient id="bolt" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f3f5f7"/><stop offset=".45" stop-color="#c7cdd2"/><stop offset="1" stop-color="#8e969d"/>
+    </linearGradient>
+    <filter id="drop" x="-30%" y="-30%" width="160%" height="160%">
+      <feDropShadow dx="10" dy="14" stdDeviation="10" flood-color="#0d2a22" flood-opacity=".28"/>
+    </filter>
+  </defs>
+
+  <rect width="800" height="1000" fill="url(#bg)"/>
+
+  <!-- door: front face in perspective + edge -->
+  <g filter="url(#drop)">
+    <path d="M110 40L330 96V944L110 1000z" fill="url(#face)"/>
+    <rect x="330" y="96" width="150" height="848" fill="url(#edge)"/>
+  </g>
+  <path d="M330 96V944" stroke="#000" stroke-opacity=".18" stroke-width="2"/>
+
+  <!-- lock panel and lever seen from the side -->
+  <path d="M276 250L314 258V790L276 798z" fill="#0b0d0f"/>
+  <path d="M278 256L290 259V420L278 430z" fill="#fff" opacity=".12"/>
+  <path d="M286 556L136 584V620L286 600z" fill="#15181b"/>
+  <ellipse cx="290" cy="578" rx="12" ry="30" fill="#9aa1a8"/>
+  <circle cx="146" cy="602" r="11" fill="#b08a4a"/>
+
+  <!-- stainless faceplate -->
+  <rect x="368" y="168" width="76" height="704" rx="8" fill="url(#steel)" stroke="#8a9299" stroke-width="1.5"/>
+
+  <!-- screws -->
+  <g>
+    <circle cx="406" cy="204" r="10" fill="#c3c9ce" stroke="#7d858c" stroke-width="1.5"/>
+    <circle cx="406" cy="420" r="9" fill="#c3c9ce" stroke="#7d858c" stroke-width="1.5"/>
+    <circle cx="406" cy="836" r="10" fill="#c3c9ce" stroke="#7d858c" stroke-width="1.5"/>
+    <path d="M399 204h14M406 197v14M400 420h12M406 414v12M399 836h14M406 829v14" stroke="#5f676e" stroke-width="2.4" stroke-linecap="round"/>
+  </g>
+
+  <!-- latch (bevelled) -->
+  <g>
+    <path d="M436 290h90l-50 66h-40z" fill="url(#bolt)" stroke="#7d858c" stroke-width="1.5" stroke-linejoin="round"/>
+    <path d="M444 290h82l-6 8h-76z" fill="#fff" opacity=".55"/>
+  </g>
+
+  <!-- four steel bolts -->
+  <g stroke="#7d858c" stroke-width="1.5">
+    <rect x="436" y="470" width="100" height="56" rx="7" fill="url(#bolt)"/>
+    <rect x="378" y="470" width="58" height="56" rx="4" fill="#7d858c" stroke="none" opacity=".35"/>
+    <rect x="436" y="548" width="100" height="56" rx="7" fill="url(#bolt)"/>
+    <rect x="378" y="548" width="58" height="56" rx="4" fill="#7d858c" stroke="none" opacity=".35"/>
+    <rect x="436" y="626" width="100" height="56" rx="7" fill="url(#bolt)"/>
+    <rect x="378" y="626" width="58" height="56" rx="4" fill="#7d858c" stroke="none" opacity=".35"/>
+    <rect x="436" y="704" width="100" height="56" rx="7" fill="url(#bolt)"/>
+    <rect x="378" y="704" width="58" height="56" rx="4" fill="#7d858c" stroke="none" opacity=".35"/>
+  </g>
+  <g fill="#fff" opacity=".6">
+    <rect x="452" y="474" width="74" height="7" rx="3"/>
+    <rect x="452" y="552" width="74" height="7" rx="3"/>
+    <rect x="452" y="630" width="74" height="7" rx="3"/>
+    <rect x="452" y="708" width="74" height="7" rx="3"/>
+  </g>
+  <g fill="#0d2a22" opacity=".14">
+    <rect x="444" y="526" width="92" height="10" rx="5"/>
+    <rect x="444" y="604" width="92" height="10" rx="5"/>
+    <rect x="444" y="682" width="92" height="10" rx="5"/>
+    <rect x="444" y="760" width="92" height="10" rx="5"/>
+  </g>
+
+  <!-- throw indicator -->
+  <g stroke="#1d6b57" stroke-width="2.5" fill="none" stroke-linecap="round">
+    <path d="M560 470v290" stroke-dasharray="2 9"/>
+    <path d="M580 498h90M580 576h90M580 654h90M580 732h90" stroke-dasharray="1 8" opacity=".6"/>
+    <path d="M560 318h50" stroke-dasharray="1 8" opacity=".6"/>
+  </g>
+  <g fill="#1d6b57">
+    <circle cx="680" cy="498" r="7"/><circle cx="680" cy="576" r="7"/>
+    <circle cx="680" cy="654" r="7"/><circle cx="680" cy="732" r="7"/>
+    <circle cx="620" cy="318" r="7" fill="none" stroke="#1d6b57" stroke-width="2.5"/>
+  </g>
+</svg>
