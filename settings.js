@@ -16,7 +16,7 @@ window.SITE = {
   contactName:  "Gary Lam",
   phone:        "+1 416-200-8386",
   wechat:       "GaryLamRealty",
-  email:        "",        // optional. Booking requests are emailed here.
+  email:        "garylamrealty@outlook.com",   // booking requests are emailed here
                            // Leave it "" and they're sent to your phone as a text message instead.
 
   /* ---------- Prices ---------- */
