@@ -288,9 +288,8 @@
 
 <!--
   ===================================================================
-  EDIT THESE BEFORE PUBLISHING  (search for "CONFIG" in the script at
-  the bottom of this file): business name, phone, email, WeChat ID.
-  Prices are set in the Pricing section below.
+  CONTACT DETAILS AND PRICES live in settings.js (next to this file).
+  Edit that file only; the page fills them in everywhere automatically.
   ===================================================================
 -->
 
@@ -336,8 +335,8 @@
         <a class="btn btn-ghost" href="#pricing"><span class="en">See pricing</span><span class="zh">查看价格</span></a>
       </div>
       <p class="price-note">
-        <span class="en"><strong>$599 installed</strong> + HST · door conversion included · pay after installation</span>
-        <span class="zh"><strong>含安装 $599</strong> + HST · 含门体改装 · 安装完成后付款</span>
+        <span class="en"><strong><span data-price="installed">$599</span> installed</strong> + HST · door conversion included · pay after installation</span>
+        <span class="zh"><strong>含安装 <span data-price="installed">$599</span></strong> + HST · 含门体改装 · 安装完成后付款</span>
       </p>
     </div>
     <div class="hero-img">
@@ -514,14 +513,14 @@
 <section id="pricing" style="padding-top:0">
   <div class="wrap">
     <h2><span class="en">Simple pricing</span><span class="zh">价格透明</span></h2>
-    <p class="sub"><span class="en">All prices in Canadian dollars, plus 13% HST.</span><span class="zh">所有价格均为加元，另加 13% HST。</span></p>
+    <p class="sub"><span class="en">All prices in Canadian dollars, plus <span data-hst>13</span>% HST.</span><span class="zh">所有价格均为加元，另加 <span data-hst>13</span>% HST。</span></p>
     <div class="plans">
       <div class="plan best">
         <span class="tag"><span class="en">Most popular</span><span class="zh">最受欢迎</span></span>
         <h3><span class="en">Installed</span><span class="zh">含安装</span></h3>
         <p class="for"><span class="en">Front door, done for you</span><span class="zh">入户门，全程代办</span></p>
-        <div class="amt">$599 <small>+ HST</small></div>
-        <div class="was"><span class="en">Launch offer: $549 for our first 20 customers</span><span class="zh">开业优惠：前 20 位客户仅 $549</span></div>
+        <div class="amt"><span data-price="installed">$599</span> <small>+ HST</small></div>
+        <div class="was" data-offer><span class="en">Launch offer: <span data-offer-price>$549</span> for our first <span data-offer-count>20</span> customers</span><span class="zh">开业优惠：前 <span data-offer-count>20</span> 位客户仅 <span data-offer-price>$549</span></span></div>
         <ul>
           <li><span class="en">Smart lock and handle set</span><span class="zh">智能门锁及把手套装</span></li>
           <li><span class="en">Door conversion and installation</span><span class="zh">门体改装及安装</span></li>
@@ -533,7 +532,7 @@
       <div class="plan">
         <h3><span class="en">Second door</span><span class="zh">第二扇门</span></h3>
         <p class="for"><span class="en">Side or garage-entry door, same visit</span><span class="zh">侧门或车库入户门，同次上门</span></p>
-        <div class="amt">$499 <small>+ HST</small></div>
+        <div class="amt"><span data-price="secondDoor">$499</span> <small>+ HST</small></div>
         <div class="was"></div>
         <ul>
           <li><span class="en">Everything in Installed</span><span class="zh">包含“含安装”全部内容</span></li>
@@ -544,7 +543,7 @@
       <div class="plan">
         <h3><span class="en">Lock only</span><span class="zh">仅门锁</span></h3>
         <p class="for"><span class="en">For contractors and doors already prepared for this lock</span><span class="zh">适合装修师傅或已预留此类锁孔的门</span></p>
-        <div class="amt">$329 <small>+ HST</small></div>
+        <div class="amt"><span data-price="lockOnly">$329</span> <small>+ HST</small></div>
         <div class="was"></div>
         <ul>
           <li><span class="en">Smart lock and handle set</span><span class="zh">智能门锁及把手套装</span></li>
@@ -596,9 +595,10 @@
       <h2><span class="en">Book your free door check</span><span class="zh">预约免费上门评估</span></h2>
       <p class="sub" style="margin-bottom:0"><span class="en">Tell us a little about your door and we'll get back to you within one business day.</span><span class="zh">简单介绍一下您的门，我们会在一个工作日内回复。</span></p>
       <ul class="contact-list">
-        <li><span class="k"><span class="en">Phone</span><span class="zh">电话</span></span><a data-config="phone" href="#">—</a></li>
-        <li><span class="k"><span class="en">Email</span><span class="zh">邮箱</span></span><a data-config="email" href="#">—</a></li>
-        <li><span class="k">WeChat</span><span class="v" data-config="wechat">—</span></li>
+        <li><span class="k"><span class="en">Contact</span><span class="zh">联系人</span></span><span class="v" data-config="contactName">Gary Lam</span></li>
+        <li><span class="k"><span class="en">Phone</span><span class="zh">电话</span></span><a data-config="phone" href="tel:+14162008386">+1 416-200-8386</a></li>
+        <li data-config-row="email"><span class="k"><span class="en">Email</span><span class="zh">邮箱</span></span><a data-config="email" href="#">—</a></li>
+        <li><span class="k">WeChat</span><span class="v" data-config="wechat">GaryLamRealty</span></li>
       </ul>
     </div>
     <form id="bookForm" novalidate>
@@ -610,9 +610,9 @@
         <label><span><span class="en">Neighbourhood</span><span class="zh">所在社区</span></span><input name="area" placeholder="e.g. Unionville"></label>
         <label><span><span class="en">Interested in</span><span class="zh">意向</span></span>
           <select name="plan">
-            <option value="Installed">Installed — $599 / 含安装</option>
+            <option value="Installed" data-label="Installed — {installed} / 含安装">Installed — $599 / 含安装</option>
             <option value="Two doors">Two doors / 两扇门</option>
-            <option value="Lock only">Lock only — $329 / 仅门锁</option>
+            <option value="Lock only" data-label="Lock only — {lockOnly} / 仅门锁">Lock only — $329 / 仅门锁</option>
           </select>
         </label>
       </div>
@@ -635,7 +635,7 @@
       </div>
       <label><span><span class="en">Anything else?</span><span class="zh">其他说明</span></span><textarea name="message"></textarea></label>
       <button class="btn btn-primary" type="submit"><span class="en">Send request</span><span class="zh">提交预约</span></button>
-      <p class="form-note"><span class="en">This opens your email app with your request filled in, so nothing is stored on this website.</span><span class="zh">点击后会打开您的邮件应用并自动填好内容，本网站不会保存您的任何信息。</span></p>
+      <p class="form-note" data-form-note><span class="en">This opens your <span data-via="en">text messages</span> with your request filled in, so nothing is stored on this website.</span><span class="zh">点击后会打开您的<span data-via="zh">短信</span>并自动填好内容，本网站不会保存您的任何信息。</span></p>
     </form>
   </div>
 </section>
@@ -654,24 +654,41 @@
   <a class="btn btn-primary" href="#book"><span class="en">Free door check</span><span class="zh">免费评估</span></a>
 </div>
 
+<script src="settings.js"></script>
 <script>
-  /* ================= CONFIG — edit these ================= */
-  const CONFIG = {
-    businessName: "Markham Smart Lock",
-    phone: "",        // e.g. "905-555-0123"
-    email: "",        // e.g. "hello@yourdomain.ca"  (booking form sends here)
-    wechat: ""        // your WeChat ID
-  };
-  /* ======================================================= */
+  /* Contact details and prices come from settings.js — edit them there, not here. */
+  const CONFIG = window.SITE || {};
+  const money = n => '$' + Number(n).toLocaleString('en-CA');
+  const telHref = v => 'tel:' + String(v).replace(/[^\d+]/g, '');
 
-  // Fill contact details everywhere they appear
+  // Contact details everywhere they appear
   document.querySelectorAll('[data-config]').forEach(el => {
     const key = el.dataset.config, val = CONFIG[key];
-    if (key === 'businessName') { el.textContent = val; return; }
     if (!val) return;
-    if (key === 'phone') { el.href = 'tel:' + val.replace(/[^\d+]/g, ''); if (!el.classList.contains('btn')) el.textContent = val; }
+    if (key === 'phone') { el.href = telHref(val); if (!el.classList.contains('btn')) el.textContent = val; }
     else if (key === 'email') { el.href = 'mailto:' + val; el.textContent = val; }
     else el.textContent = val;
+  });
+  document.querySelectorAll('[data-config-row]').forEach(row => {   // hide rows (like Email) that aren't filled in
+    if (!CONFIG[row.dataset.configRow]) row.remove();
+  });
+
+  // Prices everywhere they appear
+  const P = CONFIG.prices || {};
+  document.querySelectorAll('[data-price]').forEach(el => { if (P[el.dataset.price] != null) el.textContent = money(P[el.dataset.price]); });
+  document.querySelectorAll('#bookForm option[data-label]').forEach(o => {
+    o.textContent = o.dataset.label.replace(/\{(\w+)\}/g, (m, k) => P[k] != null ? money(P[k]) : m);
+  });
+  if (CONFIG.hstRate != null) document.querySelectorAll('[data-hst]').forEach(el => el.textContent = CONFIG.hstRate);
+  const offer = CONFIG.launchOffer;
+  document.querySelectorAll('[data-offer]').forEach(el => {
+    if (!offer) return;
+    if (!offer.price) { el.textContent = ''; return; }   // price 0 hides the offer
+    el.querySelectorAll('[data-offer-price]').forEach(s => s.textContent = money(offer.price));
+    el.querySelectorAll('[data-offer-count]').forEach(s => s.textContent = offer.customers);
+  });
+  document.querySelectorAll('[data-via]').forEach(el => {   // the form note says email or text message to match settings
+    el.textContent = CONFIG.email ? (el.dataset.via === 'zh' ? '邮件应用' : 'email app') : (el.dataset.via === 'zh' ? '短信' : 'text messages');
   });
   document.getElementById('yr').textContent = new Date().getFullYear();
 
@@ -692,14 +709,20 @@
     document.querySelector('#bookForm [name=plan]').value = a.dataset.plan;
   }));
 
-  // Booking form -> pre-filled email (no data stored on the site)
+  // Booking form -> a pre-filled email, or a text message if no email is set (nothing is stored on the site)
   document.getElementById('bookForm').addEventListener('submit', e => {
     e.preventDefault();
     const f = e.target, d = Object.fromEntries(new FormData(f));
-    if (!d.name || !d.phone) { alert(document.body.classList.contains('lang-zh') ? '请填写姓名和电话。' : 'Please add your name and phone number.'); return; }
-    if (!CONFIG.email) { alert('Booking email not set yet — add it in CONFIG at the bottom of index.html.'); return; }
-    const body = `Name: ${d.name}\nPhone: ${d.phone}\nNeighbourhood: ${d.area}\nInterested in: ${d.plan}\nDoor type: ${d.door}\nLanguage: ${d.language}\n\n${d.message}`;
-    location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent('Door check request — ' + d.name)}&body=${encodeURIComponent(body)}`;
+    const zh = document.body.classList.contains('lang-zh');
+    if (!d.name || !d.phone) { alert(zh ? '请填写姓名和电话。' : 'Please add your name and phone number.'); return; }
+    const body = `Door check request\nName: ${d.name}\nPhone: ${d.phone}\nNeighbourhood: ${d.area}\nInterested in: ${d.plan}\nDoor type: ${d.door}\nLanguage: ${d.language}\n\n${d.message}`;
+    if (CONFIG.email) {
+      location.href = `mailto:${CONFIG.email}?subject=${encodeURIComponent('Door check request — ' + d.name)}&body=${encodeURIComponent(body)}`;
+    } else if (CONFIG.phone) {
+      location.href = `sms:${String(CONFIG.phone).replace(/[^\d+]/g, '')}?&body=${encodeURIComponent(body)}`;
+    } else {
+      alert(zh ? '请直接致电或微信联系我们。' : 'Please call or WeChat us directly.');
+    }
   });
 
   /* ================= ANIMATIONS ================= */

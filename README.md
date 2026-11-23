@@ -1,34 +1,61 @@
 # Markham Smart Lock website
 
-A one-page bilingual (English / 简体中文) site for GitHub Pages.
+A one-page bilingual (English / 简体中文) site, hosted free on GitHub Pages.
 
-## Files
-- `index.html` — the whole site (styles and script included)
-- `assets/` — Blender renders: `photo-lock-hero.jpg` (main image), `photo-dusk-off.jpg` / `photo-dusk-on.jpg` (wall light switching on), `intro-door.jpg` + `intro-lever.png` (opening animation); `lock-bolts.svg` illustration; social share image
+Live site: https://smartspherical.github.io/markham-smart-lock/
+Repository: https://github.com/SmartSpherical/markham-smart-lock
 
-## Before publishing
-Open `index.html`, scroll to the bottom and fill in `CONFIG`:
+## Change your contact details or prices
+
+Everything you'd normally want to change is in **one small file: `settings.js`**.
+The page fills those values in everywhere: the price under the headline, the three pricing cards, the launch offer, the booking form's dropdown, the phone and WeChat details, and the "Call" button on phones.
 
 ```js
-const CONFIG = {
+window.SITE = {
   businessName: "Markham Smart Lock",
-  phone: "905-555-0123",
-  email: "hello@yourdomain.ca",   // booking requests go here
-  wechat: "your-wechat-id"
+  contactName:  "Gary Lam",
+  phone:        "+1 416-200-8386",
+  wechat:       "GaryLamRealty",
+  email:        "",
+
+  prices: {
+    installed:   599,
+    secondDoor:  499,
+    lockOnly:    329
+  },
+
+  launchOffer: { price: 549, customers: 20 },   // set price to 0 to hide the offer
+  hstRate: 13
 };
 ```
 
-Prices are written in the Pricing section (search for `$599`, `$549`, `$499`, `$329`).
+### Easiest way: edit on the GitHub website (no software needed)
+1. Sign in to GitHub as **SmartSpherical**.
+2. Open https://github.com/SmartSpherical/markham-smart-lock/blob/main/settings.js
+3. Click the **pencil icon** (Edit this file) at the top right of the file.
+4. Change the text inside the quotes or the numbers. Keep the quotes, commas and brackets as they are.
+5. Click **Commit changes…**, then **Commit changes** again.
+6. Wait about a minute, then refresh the live site. If you still see old values, wait another minute (browsers keep a short cache) or open the site in a private window.
 
-## Publish on GitHub Pages
-1. Create a new public repository on GitHub (e.g. `markham-smart-lock`).
-2. Upload `index.html` and the `assets` folder (Add file → Upload files).
-3. Go to Settings → Pages → Source: "Deploy from a branch", Branch: `main`, folder `/ (root)` → Save.
-4. After a minute your site is live at `https://<your-username>.github.io/markham-smart-lock/`.
-5. Optional: add your own domain under Settings → Pages → Custom domain.
+### Rules that keep it working
+- Prices are numbers only: `599`, not `"$599"` or `599.00`.
+- Text goes inside straight double quotes: `"Gary Lam"`.
+- Every line inside the brackets ends with a comma, except the last one before a `}`.
+- To hide the launch offer, set `price: 0`.
+- If `email` is left as `""`, the booking form sends the request to your phone as a text message instead. Add an email (`"you@example.com"`) to receive requests by email.
+
+If something breaks after an edit, open the file's **History** on GitHub and compare against the previous version. Usually it's a missing comma or quote.
+
+### Changing wording (not prices)
+Headlines, descriptions and FAQ answers are in `index.html`. Each sentence appears twice, once inside `<span class="en">…</span>` (English) and once inside `<span class="zh">…</span>` (Chinese). Edit both so the two languages stay in step.
+
+## Files
+- `settings.js` — contact details and prices (edit this)
+- `index.html` — the page: text, layout, styles and animations
+- `assets/` — Blender renders: `photo-lock-hero.jpg` (main image), `photo-dusk-off.jpg` / `photo-dusk-on.jpg` (wall light switching on), `intro-door.jpg` + `intro-lever.png` (opening animation); `lock-bolts.svg` illustration; `og-image.jpg` social share image
 
 ## Notes
-- The booking form opens the visitor's email app with their request filled in. Nothing is stored or processed on the site, and there is no checkout. That keeps it an informational site, as GitHub Pages' usage rules require. Take payment after installation by e-Transfer or a Stripe/Square payment link.
+- The booking form opens the visitor's text messages (or email app, if an email is set) with their request filled in. Nothing is stored or processed on the site, and there is no checkout. That keeps it an informational site, as GitHub Pages' usage rules require. Take payment after installation by e-Transfer or a Stripe/Square payment link.
 - Before going live, confirm the features with your supplier. The site only claims fingerprint, PIN, card and key.
 
 ## Animations
